@@ -1,0 +1,48 @@
+https://code.visualstudio.com/ >> Install
+https://nodejs.org/en >> Install
+https://git-scm.com/downloads >> Install
+https://github.com/ >> Create Account
+https://github.com/Aakashdeveloper >> Follow
+
+NPM
+Basic NodeJS(in built)(Os,file,http)
+NodeJS(full Stack App) (Node-EJs-Mongo-Express)
+Third Party Api (Weather Api)
+Redis  > 6379
+//////////////////////////
+ImageUpload
+ImageUpload(formidable)
+RedisWithMongo
+Node-Es6(.babel)
+MongoDb Basic >27017  (local/cloud)
+Zomato App backend
+Api with NodeJS(Rest)>1
+Github
+Swagger
+Testing
+DashBoard(Crud)
+--Deployment of app---
+render
+Pm2
+Docker
+Nginx
+Jenkins
+Login/Logout(JWT)
+Oauth(with github)
+TelegramChat
+GraphQl API
+Paytm-Payment
+Oauth(with google)
+NodeJs with postgres
+Email With Node(nodemailer)
+Chatapp
+FIREBASE
+--------NOT---------
+React/Angular
+Html/css/jquery
+
+microservice(aws lambda)
+upload to s3 bucket
+
+NodeJs
+> Single Thread, Async, Non Block I/O
