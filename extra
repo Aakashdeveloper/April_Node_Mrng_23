@@ -9,7 +9,6 @@ Basic NodeJS(in built)(Os,file,http)
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
 Third Party Api (Weather Api)
 Redis  > 6379
-//////////////////////////
 ImageUpload
 ImageUpload(formidable)
 RedisWithMongo
@@ -46,3 +45,52 @@ upload to s3 bucket
 
 NodeJs
 > Single Thread, Async, Non Block I/O
+
+Npm
+> node package manager
+
+Day-1 https://youtu.be/QrpT0xHxnL8
+Day-2 https://youtu.be/_VBlOCvjmDM
+
+2,348,877
+
+Nexes repo
+
+JSON
+> JavaScript Object Notation
+> Way to represent data
+> Key value
+[
+    {
+        "name":"John",
+        "city":"Amsterdam"
+    },
+    {
+        "name":"Nikita",
+        "city":"London"
+    },
+    {
+        "name":"Amar",
+        "city":"Pune",
+        "age":10
+    }
+]
+
+///package.json
+> Entry point to app
+> Contains packages used in app
+> Script (start,test)
+> Meta Data (name,version,description)
+
+/* Step Generate to generate package.json */
+** NodeJs must be installed in laptop
+> go inside folder using terminal/cmd
+> npm init
+> Answer all questions
+> type yes
+
+
+/* Step Generate to install package */
+** NodeJs must be installed in laptop
+> go inside folder using terminal/cmd
+> npm i packagename/ npm install packagename
