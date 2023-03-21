@@ -4,6 +4,18 @@ https://git-scm.com/downloads >> Install
 https://github.com/ >> Create Account
 https://github.com/Aakashdeveloper >> Follow
 
+extension
+> vscode-icons
+> githistory
+> gitlens
+> spellcheck
+> Eslint
+> Tabnine
+
+Chorme
+> Json-viewer
+(https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)
+
 NPM
 Basic NodeJS(in built)(Os,file,http)
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
@@ -49,8 +61,7 @@ NodeJs
 Npm
 > node package manager
 
-Day-1 https://youtu.be/QrpT0xHxnL8
-Day-2 https://youtu.be/_VBlOCvjmDM
+
 
 2,348,877
 
@@ -94,3 +105,46 @@ JSON
 ** NodeJs must be installed in laptop
 > go inside folder using terminal/cmd
 > npm i packagename/ npm install packagename
+
+npm i package@2.5.4
+
+package-lock > Dependency tree
+node_modules > Contains all the packages you have installed
+.gitignore > What all things we dont want to push to git
+
+
+
+NODE JS   Mr. Aakash @ 8:00 AM
+
+Fee-5,000/- (including GST) without videos
+Fee:- 8,000/- (including GST)with videos
+
+Payment Details 👇
+Bank Details :- 
+Name: Naresh I Technologies
+A/C No. 50200022639833     
+Bank: HDFC
+A/C Type: Current Account
+IFSC Code: HDFC0001627
+MICR Code: 500240035
+Branch Code: 001627
+Branch:  Ameerpet
+
+Note: If you want to use Phonepe or Google Pay then follow  below steps
+You can find the option Bank Transfer in Phonepe and Google pay. There you can enter our bank account number and you can transfer the amount. 
+
+Please mention your Name on the receipt and send a email once the payment is done send the payment screenshot  to support@nareshit.com and also to ADMIN SHUBHAM 7337313415
+
+Please fill and send the details mentioned below 
+Name
+Mobile No
+Email I'd
+Course
+Faculty name
+Batch timings
+With screenshot of the payment  ADMIN SHUBHAM 7337313415
+DO COMPLETE YOUR FEE PAYMENTS AND SHARE UR PAYMENT SCREENSHOT... ON MY NUM 7337313415 ONLY WHATSAPP 
+
+Day-1 https://youtu.be/QrpT0xHxnL8
+Day-2 https://youtu.be/_VBlOCvjmDM
+Day-3 https://youtu.be/hpocmMjeMd8
