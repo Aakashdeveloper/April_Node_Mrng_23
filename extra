@@ -17,6 +17,7 @@ Chorme
 (https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)
 
 NPM
+//////////////
 Basic NodeJS(in built)(Os,file,http)
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
 Third Party Api (Weather Api)
@@ -56,7 +57,7 @@ microservice(aws lambda)
 upload to s3 bucket
 
 NodeJs
-> Single Thread, Async, Non Block I/O
+> Single Thread, Async, Non Blocking I/O
 
 Npm
 > node package manager
@@ -112,6 +113,29 @@ package-lock > Dependency tree
 node_modules > Contains all the packages you have installed
 .gitignore > What all things we dont want to push to git
 
+/* Step Generate to install dev dependency */
+** NodeJs must be installed in laptop
+> go inside folder using terminal/cmd
+> npm i packagename --save-dev
+
+
+local dependency
+> Default installation
+> they are local to the folder
+> only used for specific folder
+
+global dependency
+> installed in the laptop
+> can be used for any app
+> only used before app start
+> use to generate the app / run the app
+> will not add in package.json
+> need admin permission to install
+
+dev dependency
+> they are local to the folder
+> only dependencies used at time of development
+
 
 
 NODE JS   Mr. Aakash @ 8:00 AM
@@ -148,3 +172,4 @@ DO COMPLETE YOUR FEE PAYMENTS AND SHARE UR PAYMENT SCREENSHOT... ON MY NUM 73373
 Day-1 https://youtu.be/QrpT0xHxnL8
 Day-2 https://youtu.be/_VBlOCvjmDM
 Day-3 https://youtu.be/hpocmMjeMd8
+Day-4 https://youtu.be/3P4ULhOlnH0
