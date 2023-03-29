@@ -17,8 +17,8 @@ Chorme
 (https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)
 
 NPM
-//////////////
 Basic NodeJS(in built)(Os,file,http)
+//////////////
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
 Third Party Api (Weather Api)
 Redis  > 6379
@@ -154,3 +154,18 @@ Day-4 https://youtu.be/3P4ULhOlnH0
 #mac /linux
 > open terminal
 > sudo npm i -g nodemon
+
+
+Es5
+Ecma Script
+Es6
+Ecma Script
+
+var a = 10
+"my age is "+a
+"my age is 10"
+
+
+var a = 10
+`my age is ${a}`
+"my age is 10"
