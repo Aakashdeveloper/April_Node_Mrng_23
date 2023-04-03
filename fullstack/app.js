@@ -5,8 +5,15 @@ dotenv.config()
 let morgan = require('morgan');
 let fs = require('fs');
 let port= process.env.PORT || 6700;
-let categoryRouter = require('./src/controller/CategoryRouter');
-let productRouter = require('./src/controller/ProductRouter');
+
+
+let menu = [
+    { name:'Category',link:'/category'},
+    { name:'Products',link:'/products'}
+]
+
+let categoryRouter = require('./src/controller/CategoryRouter')(menu);
+let productRouter = require('./src/controller/ProductRouter')(menu);
 
 //middleware
 app.use(morgan('common',{stream:fs.createWriteStream('./app.log')}))
@@ -21,9 +28,8 @@ app.set('view engine','ejs')
 //default
 app.get('/',(req,res) => {
    // res.send('Hii From Express')
-   res.render('index',{title:'Home Page'})
+   res.render('index',{title:'Home Page',menu})
 })
-
 
 
 app.use('/category',categoryRouter);
