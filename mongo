@@ -1,0 +1,63 @@
+Roll No  | Hindi | English |  Computer
+  1      |  86   |         |
+  2      |       |    78   | 
+  3      |  69   |         |   78
+
+NoSql
+> Not a sql
+> JSON
+> Both structred and unstructred
+> Nested Data
+
+[
+    {
+        "rollNo":1,
+        "Hindi":86
+    },
+    {
+        "rollNo":2,
+        "English":78
+    },
+    {
+        "rollNo":2,
+        "Hindi":69,
+        "Computer":78
+    }
+]
+
+SQL          MongoDB
+Database     Database
+Table        Collection
+Row          Document
+Select       Find
+Insert       Insert
+Delete       Remove
+Update       Update
+
+//Setup
+> Local
+> Download MongoDB
+* https://www.mongodb.com/try/download/community
+
+# window
+> Create folder by the name of data in c drive
+C:/data
+> Inside data folder create db folder
+> C:/data/db
+
+# Mac/linux
+> open terminal
+> mkdir data/db
+
+> Cloud
+* https://www.mongodb.com/
+* try free
+> signup with google
+
+* Network access
+> 0.0.0.0/0
+* Database access
+> Create user
+Built-in Role
+> Atlas Admin
+> Add User
