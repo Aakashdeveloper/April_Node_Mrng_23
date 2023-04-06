@@ -21,6 +21,7 @@ Basic NodeJS(in built)(Os,file,http)
 //////////////
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
 Third Party Api (Weather Api)
+
 Redis  > 6379
 ImageUpload
 ImageUpload(formidable)
@@ -61,8 +62,6 @@ NodeJs
 
 Npm
 > node package manager
-
-
 
 2,348,877
 
@@ -169,3 +168,5 @@ var a = 10
 var a = 10
 `my age is ${a}`
 "my age is 10"
+
+npm i mongodb@4.13.0

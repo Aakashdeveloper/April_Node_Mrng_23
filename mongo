@@ -97,7 +97,7 @@ C:/programfile/mongodb/server/5.0.1/bin
 
 
 * insert data
-> db.users.insert({"name":"Arun","city":"Pune"})
+> db.users.insert({name:"Arun","city":"Pune"})
 > db.users.insert({"name":"Nikita","city":"Delhi"})
 > db.users.insert({"_id":1,"name":"Rohit","city":"Mumbai"})
 > db.users.insert({"_id":2,"name":"Neha","city":"Paris"})
@@ -109,3 +109,9 @@ _id
   * 5byte(random number)
   * 3byte(Series)
   * 4byte(timestamp)
+
+  ///find with condition
+
+db.products.find({Brand:"Gucci"})
+
+db.products.find({Brand:"Gucci","Color":"white"})
