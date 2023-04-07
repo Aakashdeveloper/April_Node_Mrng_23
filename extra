@@ -18,8 +18,8 @@ Chorme
 
 NPM
 Basic NodeJS(in built)(Os,file,http)
-//////////////
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
+//////////////
 Third Party Api (Weather Api)
 
 Redis  > 6379
@@ -170,3 +170,18 @@ var a = 10
 "my age is 10"
 
 npm i mongodb@4.13.0
+
+////////
+Params
+> What we pass after /
+> Need to define in route
+> If defined than complousry to pass
+> Should be use for find results
+
+QueryParams
+> What we pass after ?
+> No need to define in router
+> Should be use for the filter data
+
+Body
+> what we pass from form 
