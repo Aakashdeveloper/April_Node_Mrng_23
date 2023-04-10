@@ -19,9 +19,8 @@ Chorme
 NPM
 Basic NodeJS(in built)(Os,file,http)
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
-//////////////
 Third Party Api (Weather Api)
-
+//////////////
 Redis  > 6379
 ImageUpload
 ImageUpload(formidable)
@@ -185,3 +184,13 @@ QueryParams
 
 Body
 > what we pass from form 
+
+///////////
+Redis > 6379
+KEYS *
+set city Delhi
+get keyname
+del keyname
+FLUSHALL
+
+set keyname value ex time
