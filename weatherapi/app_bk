@@ -1,5 +1,5 @@
-import express from 'express';
-import request from 'request';
+let express = require('express');
+let request = require('request');
 let port = process.env.PORT || 7660;
 let app = express();
 

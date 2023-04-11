@@ -20,13 +20,15 @@ NPM
 Basic NodeJS(in built)(Os,file,http)
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
 Third Party Api (Weather Api)
-//////////////
 Redis  > 6379
-ImageUpload
-ImageUpload(formidable)
-RedisWithMongo
 Node-Es6(.babel)
+//////////////
+RedisWithMongo
+ImageUpload
+
+ImageUpload(formidable)
 MongoDb Basic >27017  (local/cloud)
+
 Zomato App backend
 Api with NodeJS(Rest)>1
 Github
@@ -39,6 +41,7 @@ Pm2
 Docker
 Nginx
 Jenkins
+
 Login/Logout(JWT)
 Oauth(with github)
 TelegramChat
