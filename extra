@@ -23,10 +23,10 @@ Third Party Api (Weather Api)
 Redis  > 6379
 Node-Es6(.babel)
 RedisWithMongo
-//////////////
 ImageUpload
 ImageUpload(formidable)
-
+Email With Node(nodemailer)
+//////////////
 MongoDb Basic >27017  (local/cloud)
 Zomato App backend
 Api with NodeJS(Rest)>1
@@ -40,7 +40,6 @@ Pm2
 Docker
 Nginx
 Jenkins
-
 Login/Logout(JWT)
 Oauth(with github)
 TelegramChat
@@ -48,7 +47,7 @@ GraphQl API
 Paytm-Payment
 Oauth(with google)
 NodeJs with postgres
-Email With Node(nodemailer)
+
 Chatapp
 FIREBASE
 --------NOT---------
@@ -196,3 +195,11 @@ del keyname
 FLUSHALL
 
 set keyname value ex time
+
+
+Go to your Google Account.
+Select Security.
+Under "Signing in to Google," select App Passwords. You may need to sign in. ...
+At the bottom, choose Select app and choose the app you using Select device and choose the device you're using. ...
+Follow the instructions to enter the App Password. ...
+Tap Done.
