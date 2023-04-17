@@ -62,6 +62,8 @@ Built-in Role
 > Atlas Admin
 > Add User
 
+mongodb+srv://test:test123@cluster0.f8vmc.mongodb.net/?retryWrites=true&w=majority
+
 Default Port > 27017
 
 // Start mongo server (should always running if using in app)
@@ -115,3 +117,84 @@ _id
 db.products.find({Brand:"Gucci"})
 
 db.products.find({Brand:"Gucci","Color":"white"})
+
+
+db.restaurants.find({})
+
+//projection
+db.restaurants.find({condition},{projection})
+
+db.restaurants.find({},{restaurant_name:1,cost:1,_id:0})
+
+// projection with condition
+db.restaurants.find({state_id:1},{restaurant_name:1,cost:1,_id:0})
+
+
+db.restaurants.find({state_id:2},{restaurant_name:1,cost:1,_id:0,address:1})
+
+db.restaurants.find({},{restaurant_name:1,cost:1,_id:0}).sort({cost:1})
+
+db.restaurants.find({},{restaurant_name:1,cost:1,_id:0}).sort({restaurant_name:1})
+
+
+db.restaurants.find({},{restaurant_name:1,cost:1,_id:0}).sort({cost:1}).limit(3)
+
+db.restaurants.find({},{restaurant_name:1,cost:1,_id:0}).sort({cost:1}).skip(0).limit(3) 0-3
+db.restaurants.find({},{restaurant_name:1,cost:1,_id:0}).sort({cost:1}).skip(3).limit(3) 4-6
+db.restaurants.find({},{restaurant_name:1,cost:1,_id:0}).sort({cost:1}).skip(6).limit(3) 7-9
+db.restaurants.find({},{restaurant_name:1,cost:1,_id:0}).sort({cost:1}).skip(9).limit(3) 9-12
+
+//update
+db.users.update(
+  {condition},
+  {values}
+)
+
+db.user.update(
+  {"_id" : 3},
+  {
+    $set:{
+      "address":"654 Model Town",
+      "city":"Pune"
+    }
+  }
+)
+
+db.user.update(
+  {"_id" : 2},
+  {
+    $set:{
+      "city":"Delhi"
+    }
+  }
+)
+
+db.user.update(
+  {"_id" : 3},
+  {
+    $unset:{
+      "address":1
+    }
+  }
+)
+
+
+db.user.update(
+  {"city":"Delhi"},
+  {
+    $set:{
+      "Temp":34
+    }
+  },
+  {
+    multi:true
+  }
+)
+
+
+//Delete
+> Delete All
+db.user.remove({})
+
+> Delete particular record
+db.user.remove({"name" : "Nikita"})
