@@ -34,12 +34,15 @@ Github
 Swagger
 Testing
 DashBoard(Crud)
+
 --Deployment of app---
 render
 Pm2
 Docker
 Nginx
 Jenkins
+GitActions
+
 Login/Logout(JWT)
 Oauth(with github)
 TelegramChat

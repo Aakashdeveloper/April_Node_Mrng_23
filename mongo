@@ -144,6 +144,17 @@ db.restaurants.find({},{restaurant_name:1,cost:1,_id:0}).sort({cost:1}).skip(3).
 db.restaurants.find({},{restaurant_name:1,cost:1,_id:0}).sort({cost:1}).skip(6).limit(3) 7-9
 db.restaurants.find({},{restaurant_name:1,cost:1,_id:0}).sort({cost:1}).skip(9).limit(3) 9-12
 
+db.restaurants.find({"mealTypes.mealtype_id":3},{restaurant_name:1,mealTypes:1,_id:0}).pretty()
+
+db.restaurants.find({"mealTypes.mealtype_id":{$in:[1,4,6]}},{restaurant_name:1,mealTypes:1,_id:0}).pretty()
+
+db.restaurants.find({cost:{$lt:500}},{restaurant_name:1,cost:1,_id:0}).pretty()
+
+db.restaurants.find({cost:{$gt:1500}},{restaurant_name:1,cost:1,_id:0}).pretty()
+
+db.restaurants.find({cost:{$gt:500,$lt:1000}},{restaurant_name:1,cost:1,_id:0}).pretty()
+
+
 //update
 db.users.update(
   {condition},
