@@ -10,7 +10,7 @@ let cors = require('cors');
 let port = process.env.PORT;
 let db;
 let authKey = process.env.AuthKey
-
+let {getData,getDatawithsortlimit} = require('./contoller/apiController');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -24,15 +24,9 @@ function auth(key){
     }
 }
 
-function getData(colName,query){
-    let output;
-    db.collection(colName).find(query).toArray((err,data) => {
-        if(err) throw err;
-        console.log(">>>data",data)
-        output = data
-    })
-    return output
-}
+// async function getData(colName,query){
+//     return await db.collection(colName).find(query).toArray()
+// }
 
 // get heart beat
 app.get('/',(req,res) => {
@@ -53,7 +47,7 @@ app.get('/location',(req,res) => {
 })
 
 //List of restaurants
-app.get('/restaurants',(req,res) => {
+app.get('/restaurants',async (req,res) => {
     let query = {};
     let stateId = Number(req.query.stateId)
     let mealId = Number(req.query.mealId)
@@ -70,25 +64,94 @@ app.get('/restaurants',(req,res) => {
     }else{
         query = {}
     }
-    db.collection('restaurants').find(query).toArray((err,data) => {
-        res.status(200).send(data)
-    })
+    let collection = 'restaurants'
+    let output = await getData(db,collection,query)
+    res.send(output)
+    // db.collection('restaurants').find(query).toArray((err,data) => {
+    //     res.status(200).send(data)
+    // })
 })
+
 
 //list of meals
-app.get('/meals',async (req,res) => {
+app.get('/meals',async(req,res) => {
     let query = {}
     let collection = 'mealType'
-    db.collection(collection).find(query).toArray((err,data) => {
-        res.status(200).send(data)
-    })
-    // let output = await getData(collection,query)
-    // console.log(">>>output",output)
-    // res.send(output)
+    let output = await getData(db,collection,query)
+    res.send(output)
 })
 
+//filters
+app.get('/filter/:mealId',async (req,res) => {
+    let query = {}
+    let sort = {cost:1}
+    let skip = 0;
+    let limit = 100000000
+    let collection = 'restaurants';
+    let mealId = Number(req.params.mealId);
+    let cuisineId = Number(req.query.cuisineId);
+    let hcost = Number(req.query.hcost);
+    let lcost = Number(req.query.lcost);
 
+    if(req.query.skip && req.query.limit){
+        skip = Number(req.query.skip);
+        limit = Number(req.query.limit);
+    }
 
+    if(req.query.sort){
+        sort = {cost:req.query.sort}
+    }
+
+    if(cuisineId && hcost && lcost){
+        query = {
+            "mealTypes.mealtype_id":mealId,
+            $and:[{cost:{$gt:lcost,$lt:hcost}}],
+            'cuisines.cuisine_id':cuisineId
+        } 
+    } else if(cuisineId){
+        query = {
+            "mealTypes.mealtype_id":mealId,
+            'cuisines.cuisine_id':cuisineId
+        }
+    }else if(hcost && lcost){
+        query = {
+            "mealTypes.mealtype_id":mealId,
+            $and:[{cost:{$gt:lcost,$lt:hcost}}]
+        } 
+    }
+
+    let output = await getDatawithsortlimit(db,collection,query,sort,skip,limit)
+    res.send(output)
+})
+
+//details
+app.get('/details/:id',async (req,res) => {
+    let _id = mongo.ObjectId(req.params.id)
+    let query = {_id:_id}
+    let collection = 'restaurants'
+    let output = await getData(db,collection,query)
+    res.send(output)
+})
+
+//menu wrt to restaurants
+app.get('/menu/:id',async (req,res) => {
+    let id = Number(req.params.id)
+    let query = {restaurant_id:id}
+    let collection = 'menu'
+    let output = await getData(db,collection,query)
+    res.send(output)
+})
+
+//order
+app.get('/orders',async(req,res) => {
+    let query = {}
+    if(req.query.email){
+        query={email:req.query.email}
+    }
+    let collection = 'orders'
+    let output = await getData(db,collection,query)
+    res.send(output)
+})
 
 MongoClient.connect(mongoUrl,{useNewUrlParser:true},(err,client) => {
     if(err) console.log(`Error While connecting to mongo`);
