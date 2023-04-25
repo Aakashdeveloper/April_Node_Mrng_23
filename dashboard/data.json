@@ -1,0 +1,13 @@
+[
+    {"name" : "John", "city" : "Amsterdam", "phone" : 323463547, "role" : "User", "isActive" : false },
+    {"name" : "Anchal", "city" : "Paris", "phone" : 6456454532, "role" : "Admin", "isActive" : true },
+    {"name" : "Nikita", "city" : "Paris", "phone" : 8786786787, "role" : "User", "isActive" : true },
+    {"name" : "Amit", "city" : "Amsterdam", "phone" : "9876543210", "role" : "Admin", "isActive" : true },
+    {"name" : "Sahil", "city" : "Delhi", "phone" : 768767678, "role" : "User", "isActive" : true },
+    {"name" : "Kanika", "city" : "Delhi", "phone" : 678687687, "role" : "Admin", "isActive" : true },
+    {"name" : "Bhumika", "city" : "Paris", "phone" : 34634754, "role" : "Admin", "isActive" : true },
+    {"name" : "Jasmeet", "city" : "Delhi", "phone" : 4235346, "role" : "User", "isActive" : true },
+    {"name" : "Keerti", "city" : "Amsterdam", "phone" : 7868867867, "role" : "User", "isActive" : true },
+    {"name" : "Test user", "City" : "TestCity", "isActive" : false },
+    {"name" : "Parul", "city" : "Helsinki", "phone" : "9876543211", "role" : "User", "isActive" : true }
+]
