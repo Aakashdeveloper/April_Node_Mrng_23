@@ -1,1 +1,83 @@
-{}
+{
+    "openapi":"3.0.0",
+    "info":{
+        "description":"This is the api for users",
+        "version":"__version__"
+    },
+    "tags":[
+        {
+            "name":"PUBLIC ROUTE",
+            "description":"Public Route"
+        }
+    ],
+    "paths":{
+        "/health":{
+            "summary":"Testing Users Check",
+            "get":{
+                "description":"Testing Users for the app",
+                "tags":["PUBLIC ROUTE"],
+                "responses":{
+                    "200":{
+                        "description":"Users pass"
+                    }
+                }
+
+            }
+        },
+        "/users":{
+            "summary":"Testing Health Check",
+            "get":{
+                "description":"Testing Health Check for the app",
+                "tags":["PUBLIC ROUTE"],
+                "parameters":[
+                    {
+                        "in":"query",
+                        "name":"role",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Choose role as admin or user"
+                    },
+                    {
+                        "in":"query",
+                        "name":"city",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Enter city"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Health Check pass"
+                    }
+                }
+
+            }
+        },
+        "/user/{id}":{
+            "summary":"Testing Health Check",
+            "get":{
+                "description":"Testing User Details for the app",
+                "tags":["PUBLIC ROUTE"],
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"id",
+                        "required":true,
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Enter object id"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"User Details"
+                    }
+                }
+
+            }
+        }
+    }
+}

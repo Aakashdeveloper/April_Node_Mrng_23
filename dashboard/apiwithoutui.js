@@ -11,6 +11,12 @@ const collection = client.db('internfeb').collection('dashboard');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = process.env.PORT || 7710;
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+const package = require('./package.json');
+
+swaggerDocument.info.version = package.version;
+app.use('/api-doc',swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -56,7 +62,7 @@ app.get('/users',async(req,res) => {
         }
         query = {isActive}
     }else{
-        query = {}
+        query = {isActive:true}
     }
     const cursor = collection.find(query);
     for await (const data of cursor){
@@ -81,7 +87,7 @@ app.get('/user/:id',async (req,res) => {
 //update user
 app.put('/updateUser',async(req,res) => {
     await collection.updateOne(
-        {_id:new Mongo.ObjectId(req.params.id)},
+        {_id:new Mongo.ObjectId(req.body.id)},
         {
             $set:{
                 name:req.body.name,
@@ -101,6 +107,33 @@ app.delete('/deleteUser',async(req,res) => {
         _id:new Mongo.ObjectId(req.body._id)
     })
     res.send('User Deleted')
+})
+
+
+//softdelete user
+app.put('/deactivteUser',async(req,res) => {
+    await collection.updateOne(
+        {_id:new Mongo.ObjectId(req.body._id)},
+        {
+            $set:{
+                isActive: false  
+            }
+        }
+    )
+    res.send('User Deactivated')
+})
+
+//softdelete user
+app.put('/activteUser',async(req,res) => {
+    await collection.updateOne(
+        {_id:new Mongo.ObjectId(req.body._id)},
+        {
+            $set:{
+                isActive: true  
+            }
+        }
+    )
+    res.send('User Activated')
 })
 
 app.listen(port,() => {
