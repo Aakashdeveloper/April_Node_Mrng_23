@@ -78,6 +78,97 @@
                 }
 
             }
+        },
+        "/addUser":{
+            "summary":"Testing Health Check",
+            "post":{
+                "description":"Testing User Details for the app",
+                "tags":["PUBLIC ROUTE"],
+                "requestBody":{
+                    "required":"true",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "name":"Keerti",
+                                "city":"Amsterdam",
+                                "phone":989878762,
+                                "role":"User",
+                                "isActive":true
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"User Details"
+                    }
+                }
+
+            }
+        },
+        "/updateUser":{
+            "summary":"Update User",
+            "put":{
+                "description":"Testing Update User Details for the app",
+                "tags":["PUBLIC ROUTE"],
+                "requestBody":{
+                    "required":"true",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "_id":"",
+                                "name":"Keerti",
+                                "city":"Amsterdam",
+                                "phone":989878762,
+                                "role":"User",
+                                "isActive":true
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"User Details"
+                    }
+                }
+
+            }
+        },
+        "/deleteUser":{
+            "summary":"Delete User",
+            "delete":{
+                "description":"Testing Delete User Details for the app",
+                "tags":["PUBLIC ROUTE"],
+                "requestBody":{
+                    "required":"true",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "_id":""
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"User Details"
+                    }
+                }
+
+            }
         }
+        
     }
 }

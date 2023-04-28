@@ -1,0 +1,222 @@
+<html>
+    <head>
+        <title>Dashboard</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!-- For DataTables -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Developer Funnel</a>
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="/new">Forms</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav> 
+        <div class="container">
+               
+              <br/>
+            <h2>List of Users</h2>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped"  id="myTable">
+                    <caption>Users List</caption>
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>City</th>
+                            <th>Phone</th>
+                            <th>Role</th>
+                            <th>isActive</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<data.length; i++) {%>
+                        <tr>
+                            <td><%=data[i].name%></td>
+                            <td><%=data[i].city%></td>
+                            <td><%=data[i].phone%></td>
+                            <td><%=data[i].role%></td>
+                            <td><%=data[i].isActive%></td>
+                            <td>
+                                <button type="button" class="edit btn btn-warning"
+                                 data-toggle="modal" data-target="#myApp"
+                                 id="<%=data[i]._id%>">Edit</button>
+                                <button type="button" class="delete btn btn-danger" id="<%=data[i]._id%>">
+                                    Deactivate
+                                </button>
+                                <button type="button" class="success btn btn-success" id="<%=data[i]._id%>">
+                                    Activate
+                                </button>
+                            </td>
+                        </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+                <!-- The Modal -->
+                <div class="modal" id="myApp">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                    
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                    
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form action="/updateUser" method="POST" id="update_user">
+                                    <input type="text" readonly class="form-control" id="update_id"  name="_id">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" id="update_name" placeholder="Enter First name" name="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city">City:</label>
+                                        <input type="text" class="form-control" id="update_city" placeholder="Enter City" name="city">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone:</label>
+                                        <input type="email" class="form-control" id="update_phone" placeholder="Enter phone" name="phone">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="role">Role:</label>
+                                        <input type="role" class="form-control" id="update_role"  name="role" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>IsActive:</label>
+                                        <input class="form-control" id="update_isActive" name="isActive"  readonly>
+                                    </div>
+                                </form>
+                  
+                            </div>
+                    
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    <button type="submit" id="update_table" class="btn btn-primary">update</button>
+                            </div>
+                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $('#myTable').DataTable()
+        })
+        // edit data
+        $('.edit').click(function() {
+                    id= this.id;
+                    console.log('id is '+id)
+                    $.ajax({
+                        type: 'get',
+                        url: `/user/${id}`,
+                        success: function(data){
+                              $("#update_id").attr("value", data[0]._id);
+                              $("#update_name").attr("value", data[0].name);
+                              $("#update_city").attr("value", data[0].city);
+                              $("#update_phone").attr("value", data[0].phone);
+                              $("#update_role").attr("value", data[0].role);
+                              $("#update_isActive").attr("value", data[0].isActive);
+                              $('#Modal').modal({show: true});
+                        },
+                        error: function(){
+                            alert('No data');
+                        }
+                    });
+                });
+        // update data
+        $(function(){
+            $('#update_table').on('click', function(e){
+            var data = $('#update_user').serialize();
+            console.log(">>>>>", data)
+            e.preventDefault();
+            $.ajax({
+                    url: '/updateUser',
+                    type:'PUT',
+                    data : data,
+                    success: function(data){
+                    console.log("success of update")
+                    window.location.reload()
+                },
+                error: function(){
+                        alert('No data');
+                    }
+                });
+            });
+        });
+        //delete User
+        $('.delete').click(function() {
+            var response = confirm("do you want to delete")
+            id = this.id;
+            console.log(response)
+            if(response === true){
+                $.ajax({
+                    type: 'PUT',
+                    url: '/deactivateUser',
+                    method: 'put',
+                    data: {"_id":id},
+                    success: function(data){
+                        console.log('data is '+JSON.stringify(data));
+                        window.location.reload()
+                    },
+                    error: function(){
+                        alert('No data');
+                        }
+                        });
+                    }
+                    else{
+                        console.log("not deleted")
+                    }
+                });
+        // activate user 
+        $('.success').click(function() {
+            var response = confirm("do you want to activate user")
+            id = this.id;
+            console.log(response)
+            if(response === true){
+                $.ajax({
+                    type: 'PUT',
+                    url: '/activateUser',
+                    method: 'put',
+                    data: {"_id":id},
+                    success: function(data){
+                        console.log('data is '+JSON.stringify(data));
+                        window.location.reload()
+                    },
+                    error: function(){
+                        alert('No data');
+                        }
+                        });
+                    }
+                    else{
+                        console.log("not activated")
+                    }
+                });
+        </script>
+
+    </body>
+</html>
