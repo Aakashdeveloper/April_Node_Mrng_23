@@ -1,1 +1,24 @@
 https://raw.githubusercontent.com/Aakashdeveloper/Aakashdeveloper/master/README.md
+
+//////first time form new folder
+
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Aakashdeveloper/testcode1.git
+git push -u origin main
+
+
+/// next all time form same folder
+git add .
+git commit -m "first commit"
+git push
+
+
+git checkout -b homepage
+
+> raise pull request
+> After merge
+> Return to main branch
+> take pull

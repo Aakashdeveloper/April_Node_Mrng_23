@@ -31,20 +31,22 @@ Zomato App backend
 Api with NodeJS(Rest)>1
 Swagger
 DashBoard(Crud)
-//////////////
 Testing
 Github
 --Deployment of app---
 render
 Pm2
-Docker
+//////////////
 Nginx
 Jenkins
+
+Docker
 GitActions
 
 Login/Logout(JWT)
 Oauth(with github)
 TelegramChat
+
 GraphQl API
 Paytm-Payment
 Oauth(with google)
@@ -208,3 +210,12 @@ Tap Done.
 
 
 cors> cross origin resource sharing
+
+//global package
+npm i -g pm2
+
+pm2 start app.js
+pm2 list
+pm2 stop start
+
+pm2 start app.js -i processNumber
