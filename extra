@@ -36,10 +36,9 @@ Github
 --Deployment of app---
 render
 Pm2
-//////////////
 Nginx
 Jenkins
-
+//////////////
 Docker
 GitActions
 
