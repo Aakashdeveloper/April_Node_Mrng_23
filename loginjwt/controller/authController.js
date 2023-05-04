@@ -9,51 +9,55 @@ const User = require('../model/userSchema');
 router.use(bodyParser.urlencoded({extended:true}));
 router.use(bodyParser.json());
 
-//get all users
-router.get('/users',async (req,res) => {
-    let output = await User.find({})
-    res.send(output)
+router.get('/users',(req,res) => {
+    User.find({},(err,data) => {
+        if(err) throw err;
+        res.send(data)
+    })
 })
 
-//regitser user
-router.post('/regitser',async (req,res) => {
+///regsiter User
+router.post('/register',(req,res) => {
     //encrypt password
-    let hashpassword = bcrypt.hashSync(req.body.password,8)
-    await User.create({
+    let hashpassword = bcrypt.hashSync(req.body.password,8);
+    User.create({
         name:req.body.name,
         email:req.body.email,
         password:hashpassword,
         phone:req.body.phone,
         role:req.body.role?req.body.role:'User',
+    },(err,data) => {
+        if(err) res.status(500).send('Error While Register')
+        res.status(200).send('Registration Successful')
     })
-    res.status(200).send('Registration successfull')
 })
 
 //login User
-router.post('/login', async(req,res) => {
-    let user = await User.findOne({email:req.body.email});
-    if(!user) res.send({auth:false,token:'No User Found Register First'})
-    else{
-        const passIsValid = await bcrypt.compareSync(req.body.password,user.password)
-        if(!passIsValid) res.send({auth:false,token:'Invalid Password'})
-        // in case both match
-        let token = await jwt.sign({id:user._id},config.secret,{expiresIn:86400}) //24hr
-        res.send({auth:true,token:token})
-    }
+router.post('/login',(req,res) => {
+    User.findOne({email:req.body.email},(err,user) => {
+        if(err) res.send({auth:false,token:'Error while login'})
+        if(!user) res.send({auth:false,token:'No User Found Register First'})
+        else{
+            const passIsValid = bcrypt.compareSync(req.body.password,user.password)
+            if(!passIsValid) res.send({auth:false,token:'Invalid Password'})
+            // in case bot are correct generate token
+            let token = jwt.sign({id:user._id},config.secret,{expiresIn:86400}) //24hr
+            res.send({auth:true,token:token})
+        }
+    })
 })
 
-// userinfo
-router.get('/userInfo',async (req,res) => {
+//userInfo
+router.get('/userInfo',(req,res)=>{
     let token = req.headers['x-access-token'];
-    if(!token) res.send({auth:false,token:'No Token Provided'});
+    if(!token) res.send({auth:false,token:'No Token Provided'})
     //jwt verify
-    await jwt.verify(token,config.secret,async (err,user) => {
-        console.log(">>>>>",user)
-        if(err) res.send({auth:false,token:'Invalid Token Provided'})
-        let output =  await User.findById(user.id)
-        res.send(output)
-    });
-    
+    jwt.verify(token,config.secret,(err,user) => {
+        if(err) res.send({auth:false,token:'Invalid Token'})
+        User.findById(user.id,(err,result) => {
+            res.send(result)
+        })
+    })
 })
 
 

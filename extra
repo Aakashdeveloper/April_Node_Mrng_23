@@ -38,16 +38,16 @@ render
 Pm2
 Nginx
 Jenkins
+Login/Logout(JWT)
+Oauth(with github)
+TelegramChat
 //////////////
 Docker
 GitActions
 
-Login/Logout(JWT)
-Oauth(with github)
-TelegramChat
-
 GraphQl API
 Paytm-Payment
+
 Oauth(with google)
 NodeJs with postgres
 
