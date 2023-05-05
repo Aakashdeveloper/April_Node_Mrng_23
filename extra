@@ -41,12 +41,11 @@ Jenkins
 Login/Logout(JWT)
 Oauth(with github)
 TelegramChat
+GraphQl API
+Paytm-Payment
 //////////////
 Docker
 GitActions
-
-GraphQl API
-Paytm-Payment
 
 Oauth(with google)
 NodeJs with postgres
@@ -218,3 +217,9 @@ pm2 list
 pm2 stop start
 
 pm2 start app.js -i processNumber
+
+//dummy api
+> install global package
+* npm i -g json-server
+
+* json-server --watch db.json --port 9888
