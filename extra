@@ -46,16 +46,16 @@ Paytm-Payment
 Oauth(with google)
 NodeJs with postgres
 Chatapp
+upload to s3 bucket
+FIREBASE (npm i -g firebase)
 //////////////
 Docker
 GitActions
-FIREBASE
+microservice(aws lambda)
 --------NOT---------
 React/Angular
 Html/css/jquery
 
-microservice(aws lambda)
-upload to s3 bucket
 
 NodeJs
 > Single Thread, Async, Non Blocking I/O
@@ -221,3 +221,6 @@ pm2 start app.js -i processNumber
 * npm i -g json-server
 
 * json-server --watch db.json --port 9888
+
+
+https://docs.aws.amazon.com/keyspaces/latest/devguide/access.credentials.html
