@@ -48,7 +48,6 @@ NodeJs with postgres
 Chatapp
 upload to s3 bucket
 FIREBASE (npm i -g firebase)
-//////////////
 Docker
 GitActions
 microservice(aws lambda)
@@ -224,3 +223,7 @@ pm2 start app.js -i processNumber
 
 
 https://docs.aws.amazon.com/keyspaces/latest/devguide/access.credentials.html
+
+
+docker build . -t  appname
+docker run 3000:9000 appname
