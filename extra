@@ -227,3 +227,4 @@ https://docs.aws.amazon.com/keyspaces/latest/devguide/access.credentials.html
 
 docker build . -t  appname
 docker run 3000:9000 appname
+
