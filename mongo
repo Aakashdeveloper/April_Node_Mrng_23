@@ -209,3 +209,4 @@ db.user.remove({})
 
 > Delete particular record
 db.user.remove({"name" : "Nikita"})
+
